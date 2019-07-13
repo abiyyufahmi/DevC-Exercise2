@@ -27,16 +27,19 @@
                 else if(operator == "-")
                 {
                     total = angkapertama - angkaKedua;
+
                 }
                 else if(operator == "/")
                 {
                     total = angkapertama / angkaKedua;
+
                 }
                 else if(operator == "*")
                 {
                     total = angkapertama * angkaKedua;
                 }
-                hasil.textContent= total;
+                
+                hasil.textContent= total.toFixed(3);
             }
         }
     </script>
