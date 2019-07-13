@@ -2,10 +2,98 @@
 <html lang="en">
 <head>
     <title>Exercise 2</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script>
+        function hitung()
+        {
+            var angkapertama = parseInt(document.getElementById("angkaPertama").value);
+            var angkaKedua = parseInt(document.getElementById("angkaKedua").value);
+            var operator = document.getElementById("operator").value;
+            var hasil = document.getElementById("hasilHitung");
+            var total;
+
+            
+            if(isNaN(angkapertama) || isNaN(angkaKedua))
+            {
+                alert('Aplikasi hanya menerima angka'+angkaKedua+angkapertama)
+            }
+            else
+            {
+                if(operator == "+")
+                {
+                    total = angkapertama + angkaKedua;
+                }
+                else if(operator == "-")
+                {
+                    total = angkapertama - angkaKedua;
+                }
+                else if(operator == "/")
+                {
+                    total = angkapertama / angkaKedua;
+                }
+                else if(operator == "*")
+                {
+                    total = angkapertama * angkaKedua;
+                }
+                hasil.textContent= total;
+            }
+        }
+    </script>
 </head>
 <body>
-    <center>
-        <h1>Kalkulator</h1>
-    </center>
+    <div class="container whitespace">
+       
+        <div class="row marginrow">
+            <div class="col">
+              <h1> <center>
+                Kalkulator
+            </center></h1>
+            </div>
+        </div>
+        <div class="row marginrow">
+            <div class="col">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">Angka Pertama</span>
+                    </div>
+                    <input id="angkaPertama" type="text" class="form-control" placeholder="Masukkan Angka" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+
+                <div class="input-group mb-3">
+                    <select class="custom-select RightAlign" id="operator">
+                      <option selected>Pilih Operasi Perhitungan</option>
+                      <option value="+">Tambah (+)</option>
+                      <option value="-">Kurang (-)</option>
+                      <option value="/">Bagi   (/)</option>
+                      <option value="*">Kali   (*)</option>
+
+                    </select>
+                    <div class="input-group-append">
+                      <label class="input-group-text" for="inputGroupSelect02" >Operator</label>
+                    </div>
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">Angka Kedua</span>
+                    </div>
+                    <input type="text" id ="angkaKedua" class="form-control" placeholder="Masukkan Angka" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                
+                <button type="button" class="btn btn-secondary btn-lg btn-block" onclick="hitung()">Hitung</button>
+
+                
+            </div>
+            
+        </div>
+        <div class="row marginrow">
+                <div class="col">
+                        <div class="alert alert-light ResultText" id="hasil" role="alert">
+                                Hasil Perhitungan adalah &nbsp; <label class="alert-link ResultNumText" id="hasilHitung"></label>
+                        </div>
+                </div>
+            </div>
+      </div>
 </body>
 </html>
